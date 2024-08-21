@@ -31,9 +31,18 @@ public class Main {
         System.out.println("Средняя сумма трат за месяц составила "
                 + (float) sum / ledger.length + " рублей");
 
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        int length = reverseFullName.length;
+        for (int i = 0; i < length / 2; i++) {
+            char cash = reverseFullName[i];
+            reverseFullName[i] = reverseFullName[length - 1 - i];
+            reverseFullName[length - 1 - i] = cash;
+        }
+        System.out.println(reverseFullName);
 
     }
-
 }
+
+
 
 
