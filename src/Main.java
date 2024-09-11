@@ -2,63 +2,47 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] first = new int[]{1, 2, 3};
-        double[] second = {1.57, 7.654, 9.986};
-        boolean[] third = new boolean[2];
-        third[0] = true;
-
-        for (int i = 0; i < first.length; i++) {
-            System.out.print(first[i]);
-            if (i < first.length - 1) {
-                System.out.print(", ");
-            }
+        int[] ledger = new int[5];
+        int sum = 0;
+        ledger[0] = 14000;
+        ledger[1] = 45400;
+        ledger[2] = 16890;
+        ledger[3] = 35889;
+        ledger[4] = 34322;
+        for (int j : ledger) {
+            sum += j;
         }
-        System.out.println();
-        for (int i = 0; i < second.length; i++) {
-            System.out.print(second[i]);
-            if (i < second.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println();
-
-        for (int i = 0; i < third.length; i++) {
-            System.out.print(third[i]);
-            if (i < third.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println();
+        System.out.println("Сумма трат за месяц составила " + sum + " рублей");
 
 
-        for (int i = first.length - 1; i >= 0; i--) {
-            System.out.print(first[i]);
-            if (i > 0) {
-                System.out.print(", ");
+        int maxAmount = ledger[0];
+        int minAmount = ledger[0];
+        for (int i = 0; i < ledger.length; i++) {
+            if (ledger[i] > maxAmount) {
+                maxAmount = ledger[i];
+            }
+            if (ledger[i] < minAmount) {
+                minAmount = ledger[i];
             }
         }
-        System.out.println();
-        for (int i = second.length - 1; i >= 0; i--) {
-            System.out.print(second[i]);
-            if (i > 0) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println();
+        System.out.println("Минимальная сумма трат за неделю составила " + minAmount + " рублей. " +
+                "Максимальная сумма трат за неделю составила " + maxAmount + " рублей");
 
-        for (int i = third.length - 1; i >= 0; i--) {
-            System.out.print(third[i]);
-            if (i > 0) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println();
+        System.out.println("Средняя сумма трат за месяц составила "
+                + (float) sum / ledger.length + " рублей");
 
-        for (int i = 0; i < first.length; i++) {
-            if (first[i] % 2 != 0) {
-                first[i]+=1;
-            }
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        int length = reverseFullName.length;
+        for (int i = 0; i < length / 2; i++) {
+            char cash = reverseFullName[i];
+            reverseFullName[i] = reverseFullName[length - 1 - i];
+            reverseFullName[length - 1 - i] = cash;
         }
-        System.out.println(Arrays.toString(first));
+        System.out.println(reverseFullName);
+
     }
 }
+
+
+
+
